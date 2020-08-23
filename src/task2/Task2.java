@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Queue;
 
 public class Task2 {
 
@@ -32,9 +31,9 @@ public class Task2 {
                 brackerStack.push(bracket);
             } else {
                 // Закрывающаяся.
-                EBracket lastBracket = brackerStack.pop();
+                EBracket lastBracket = brackerStack.poll();
 
-                if (bracket.getCode() != lastBracket.getCode()) {
+                if (lastBracket == null || bracket.getCode() != lastBracket.getCode()) {
                     return false;
                 }
 
